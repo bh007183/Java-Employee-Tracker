@@ -32,48 +32,55 @@ public class command {
         System.out.println("E: Add Role");
         System.out.println("F: Add Employee");
         System.out.println("G: Exit");
-        Scanner in = new Scanner(System.in);
+        
        
-        while(true) {
-            char input = in.next().toCharArray()[0];
-            switch(input) {
+        
+            char res = input.next().charAt(0);
+            switch(res) {
             case 'A':
                 department.viewAll();
-                options();
+   
+                break;
             case 'B':
                 role.viewAll();
-                options();
+                
+                break;
             case 'C':
                 employee.viewAll();
-                options();
+                
+                break;
             case 'D':
                var departmentObject = department();
            	   department.add(departmentObject.getName(), departmentObject);
            	generalMessage("Department Created!");
-           	 options();
+           	
+           	break;
             case 'E':
             	var roleObject = role();
             	role.add(roleObject.getName(), roleObject);
             	generalMessage("Role Created!");
-            	 options();
+            	
+            	 break;
             case 'F':
             	var personObject = employee();
                 employee.add(personObject.getName(), personObject);
                 generalMessage("Employee Created!");
-                options();
+               
+                break;
             case 'G':
             	generalMessage("Good by!");
             	break;
             	
             
             default:
-            	continue;
-            }
+            	generalMessage("Not an option! Please try again!");
             
-        }
+            	break;
+            }
+          
         
-       
-       
+  
+            generalMessage("End of objecadfadf");
 		
 	}
 	private employee employee() {
@@ -93,7 +100,7 @@ public class command {
 		
 	}
 	private role role() {
-		System.out.println("Enter Department name:");
+		System.out.println("Enter Role name:");
 		String name = input.nextLine();
 		UUID id =  UUID.randomUUID();
 		return new role(name, id);
