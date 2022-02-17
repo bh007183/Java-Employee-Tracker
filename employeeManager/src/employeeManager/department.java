@@ -1,16 +1,18 @@
 package employeeManager;
 import java.util.UUID;
-public class department {
+public class department extends DatabaseClass implements GenericObjectInterface{
 	private String name;
-	private UUID id;
+	private String id;
 	
-	public department(String name, UUID id) {
-		this.name = name;
-		this.id = id;
-		
-	}
+
 	public String getName() {
 		return name;
+	}
+	@Override
+	public department setObject(String name) {
+		this.name = name;
+		this.id = generateId();
+		return this;
 	}
 	
 
@@ -18,4 +20,10 @@ public class department {
 	  public String toString() {
 	    return name + "||" + id;
 	 }
+	@Override
+	public department setObject(String name, String id) {
+		// TODO Auto-generated method stub
+		return this;
+		
+	}
 }

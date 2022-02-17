@@ -27,6 +27,9 @@ public class GenericList <T> implements GenericListInterface <T>{
 		    System.out.println( values.next().toString());
 		}
 	}
+	public void remove() {
+		
+	}
 
 	
 	
