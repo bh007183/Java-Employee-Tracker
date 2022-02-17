@@ -8,6 +8,13 @@ public class employee extends CollectionParent{
 	private String roleId;
 	private String id;
 	
+	public employee(String name, String roleId) {
+		this.name = name;
+		this.roleId = roleId;
+		this.id = UUID.randomUUID().toString();
+		
+	}
+	
 
 	public String getName() {
 		return name;
@@ -17,12 +24,7 @@ public class employee extends CollectionParent{
 		return id;
 	}
 	
-	public employee setObject(String name, String roleId) {
-		this.name = name;
-		this.roleId = roleId;
-		this.id = UUID.randomUUID().toString();
-		return this;
-	}
+	
 	
 	@Override
 	  public String toString() {
