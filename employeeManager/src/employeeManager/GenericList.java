@@ -5,12 +5,12 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 
-public class GenericList <T> implements GenericListInterface <T>{
+public class GenericList <T extends CollectionParent> implements GenericListInterface <T>{
 	private Map<String, T> list = new Hashtable<>();
 	
 	@Override
-	public void add(String name, T item) {
-		list.put(name, item);
+	public void add(T item) {
+		list.put(item.getId(), item);
 	}
 	@Override
 	
@@ -20,14 +20,16 @@ public class GenericList <T> implements GenericListInterface <T>{
 	}
 	@Override
 	public void viewAll() {
-		
 		Iterator<T> values = list.values().iterator();
-		 
 		while( values.hasNext() ){
 		    System.out.println( values.next().toString());
 		}
 	}
-	public void remove() {
+
+	@Override
+	public void removeItem(String id) {
+		// TODO Auto-generated method stub
+		list.remove(id);
 		
 	}
 

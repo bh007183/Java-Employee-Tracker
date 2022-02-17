@@ -1,6 +1,6 @@
 package employeeManager;
 import java.util.UUID;
-public class department extends DatabaseClass implements GenericObjectInterface{
+public class department extends CollectionParent {
 	private String name;
 	private String id;
 	
@@ -9,9 +9,13 @@ public class department extends DatabaseClass implements GenericObjectInterface{
 		return name;
 	}
 	@Override
+	public String getId() {
+		return id;
+	}
+	
 	public department setObject(String name) {
 		this.name = name;
-		this.id = generateId();
+		this.id = UUID.randomUUID().toString();
 		return this;
 	}
 	
@@ -20,10 +24,5 @@ public class department extends DatabaseClass implements GenericObjectInterface{
 	  public String toString() {
 	    return name + "||" + id;
 	 }
-	@Override
-	public department setObject(String name, String id) {
-		// TODO Auto-generated method stub
-		return this;
-		
-	}
+	
 }

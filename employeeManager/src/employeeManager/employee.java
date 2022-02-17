@@ -2,7 +2,7 @@ package employeeManager;
 
 import java.util.UUID;
 
-public class employee extends DatabaseClass implements GenericObjectInterface {
+public class employee extends CollectionParent{
 	
 	private String name;
 	private String roleId;
@@ -13,10 +13,14 @@ public class employee extends DatabaseClass implements GenericObjectInterface {
 		return name;
 	}
 	@Override
+	public String getId() {
+		return id;
+	}
+	
 	public employee setObject(String name, String roleId) {
 		this.name = name;
 		this.roleId = roleId;
-		this.id = generateId();
+		this.id = UUID.randomUUID().toString();
 		return this;
 	}
 	
@@ -24,13 +28,7 @@ public class employee extends DatabaseClass implements GenericObjectInterface {
 	  public String toString() {
 	    return name + "||" + roleId + "||" + id;
 	 }
-//	Should not have to use....need to figure out.
-	@Override
-	public employee setObject(String name) {
-		// TODO Auto-generated method stub
-		return this;
-		
-	}
+
 	
 
 }
